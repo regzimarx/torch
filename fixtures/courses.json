@@ -1,0 +1,47 @@
+[
+    {
+        "model": "torch.course",
+        "pk": 1,
+        "fields": {
+            "code": "bsed",
+            "name": "Bachelor in Secondary Education",
+            "department": 3
+        }
+    },
+    {
+        "model": "torch.course",
+        "pk": 2,
+        "fields": {
+            "code": "beed",
+            "name": "Bachelor in Elementary Education",
+            "department": 3
+        }
+    },
+    {
+        "model": "torch.course",
+        "pk": 3,
+        "fields": {
+            "code": "bsnd",
+            "name": "Bachelor of Science in Nutrition and Dietetics",
+            "department": 3
+        }
+    },
+    {
+        "model": "torch.course",
+        "pk": 4,
+        "fields": {
+            "code": "bsm",
+            "name": "Bachelor of Science in Midwifery",
+            "department": 3
+        }
+    },
+    {
+        "model": "torch.course",
+        "pk": 5,
+        "fields": {
+            "code": "bsa",
+            "name": "Bachelor of Science in Accountancy",
+            "department": 4
+        }
+    }
+]

@@ -1,0 +1,114 @@
+{% extends 'staff-base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4>Basic information</h4>
+                    <div class="input-field">
+                        <label>{{ form.last_name.label }}</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="input-field">
+                        <label>{{ form.first_name.label }}</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="input-field">
+                        <label>{{ form.middle_name.label }}</label>
+                        {{ form.middle_name }}
+                    </div>
+                    <div class="input-field">
+                        <label>{{ form.nick_name.label }}</label>
+                        {{ form.nick_name }}
+                    </div>
+                    <div class="input-field">
+                        <label>{{ form.birthday.label }}</label>
+                        {{ form.birthday }}
+                    </div>
+                    <div class="input-field">
+                        <label>{{ form.address.label }}</label>
+                        {{ form.address }}
+                    </div>
+                    
+                    <h4>Parents' information</h4>
+                    <div class="input-field">
+                        <label>{{ form.father_name.label }}</label>
+                        {{ form.father_name }}
+                    </div>
+                    <div class="input-field">
+                        <label>{{ form.mother_name.label }}</label>
+                        {{ form.mother_name }}
+                    </div>
+                    
+                    <h4>Degree information</h4>
+                    <div class="input-field">
+                        {{ form.department.label }}
+                        {{ form.department }}
+                    </div>
+                    <div class="input-field">
+                        {{ form.course.label }}
+                        {{ form.course }}
+                    </div>
+                    
+                    <h4>Other information</h4>
+                    <div class="input-field">
+                        {{ form.eligibility.label }}
+                        {{ form.eligibility }}
+                    </div>
+                    <div class="input-field">
+                        {{ form.affiliations.label }}
+                        {{ form.affiliations }}
+                    </div>
+                    <div class="input-field">
+                        {{ form.awards.label }}
+                        {{ form.awards }}
+                    </div>
+                    <div class="input-field">
+                        {{ form.scholarships.label }}
+                        {{ form.scholarships }}
+                    </div>
+                    
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-gradient btn-lg">Submit yearbook data</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Initialize select
+        $(document).ready(function(){
+            $('select').select();
+            $('#id_birthday').datepicker();
+            $('#id_affiliations').addClass('materialize-textarea');
+            $('#id_awards').addClass('materialize-textarea');
+            $('#id_scholarships').addClass('materialize-textarea');
+        })
+        
+        $("#id_department").on("change", function(){
+            var department = $(this).val()
+            
+            $.ajax({
+                url: "/ajax/departments/",
+                data: {
+                    "department": department
+                },
+                dataType: "json",
+                success: function(data) {
+                    var courses = $("#id_course").prev();
+                    var courses_select = $("#id_course");
+                    courses.empty()
+                    courses_select.empty()
+                    
+                    $.each(data['courses'], function(key, value){
+                        courses.append($("<li class><span>"+value.name+"</span></li>"));
+                        courses_select.append($("<option></option>").attr("value", value.id).text(value.name));
+                    })
+                    courses_select.select()
+                }
+            })
+        })
+    </script>
+{% endblock %}

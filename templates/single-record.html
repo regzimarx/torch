@@ -1,0 +1,28 @@
+{% extends 'staff-base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="input-field">
+                    <label for="">Search using lastname or reference number</label>
+                    <input type="text">
+                </div>
+                <h5>{{ record.last_name }}, {{ record.first_name }} {{ record.middle_name }}</h5>
+                <p>Nickname: {{ record.nick_name }}</p>
+                <p>Birthday: {{ record.birthday }}</p>
+                <p>Address: {{ record.address }}</p>
+                <p>Father's name: {{ record.father_name }}</p>
+                <p>Mother's name: {{ record.mother_name }}</p>
+                <p>Department: {{ record.department }}</p>
+                <p>Course: {{ record.course }}</p>
+                <p>Affiliations: {{ record.affiliations }}</p>
+                <p>Awards: {{ record.awards }}</p>
+                <p>Scholarships: {{ record.scholarships }}</p>
+                <p>Eligibility: {{ record.eligibility }}</p>
+                <p>Casual picture number: {{ record.casual_num }}</p>
+                <p>Toga picture number: {{ record.toga_num }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

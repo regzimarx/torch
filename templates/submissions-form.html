@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div class="card z-depth-0">
+                    <div class="card-content">
+                        <h3>Basic information</h3>
+                        <form method="post" action="{% url 'submissions_form' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>{{ form.last_name.label }}</label>
+                                <input type="text" class="form-control" name="last_name" placeholder="Enter your last name">
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.first_name.label }}</label>
+                                <input type="text" class="form-control" name="first_name" placeholder="Enter your first name">
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.middle_name.label }}</label>
+                                <input type="text" class="form-control" name="middle_name" placeholder="Enter your middle name">
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.nick_name.label }}</label>
+                                <input type="text" class="form-control" name="nick_name" placeholder="Enter your nick name">
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.birthday.label }}</label>
+                                <input type="text" class="form-control" name="birthday" placeholder="Enter your birthday">
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.address.label }}</label>
+                                <input type="text" class="form-control" name="address" placeholder="Enter your address">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card z-depth-0">
+                        <div class="card-content">
+                            <h3>Parents' information</h3>
+                            <div class="form-group">
+                                <label>Father's name</label>
+                                <input type="text" class="form-control" name="father_name" placeholder="Enter your father's name">
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's name</label>
+                                <input type="text" class="form-control" name="mother_name" placeholder="Enter your mother's name">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card z-depth-0">
+                        <div class="card-content">
+                            <h3>Degree information</h3>
+                            <div class="form-group">
+                                {{ form.department.label }}
+                                {{ form.department }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.course.label }}
+                                {{ form.course }}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card z-depth-0">
+                        <div class="card-content">
+                            <h3>Other information</h3>        
+                            <div class="form-group">
+                                <label>{{ form.eligibility.label }}</label>
+                                <input type="text" class="form-control" name="eligibility" placeholder="Enter your eligibility">
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.affiliations.label }}</label>
+                                <textarea name="affiliation" class="form-control" rows="5">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.award.label }}</label>
+                                <textarea name="award" class="form-control" rows="5">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>{{ form.scholarship.label }}</label>
+                                <textarea name="scholarship" class="form-control" rows="5">
+                                </textarea>
+                            </div>
+                            <br><br>
+                            <button type="submit" class="btn btn-primary btn-lg blue z-depth-0" style="text-transform: capitalize;">Submit entry</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4">
+                
+            </div>
+        </div>
+        <br>
+    </div>
+    <script>
+    
+        $(document).ready(function(){
+            $("#id_department").select()
+            $("#id_course").select();
+        })
+    
+        // // Initialize select
+        // $(document).ready(function(){
+        //     var department_select = $("#id_department");
+        //     department_select.select();
+        //     $('#id_birthday').datepicker();
+        // })
+        
+        // $("#id_department").on("change", function(){
+        //     var department = $(this).val()
+            
+        //     $.ajax({
+        //         url: "/ajax/departments/",
+        //         data: {
+        //             "department": department
+        //         },
+        //         dataType: "json",
+        //         success: function(data) {
+        //             var courses = $("#id_course").prev();
+        //             var courses_select = $("#id_course");
+        //             courses.empty()
+        //             courses_select.empty()
+                    
+        //             $.each(data['courses'], function(key, value){
+        //                 courses.append($("<li class><span>"+value.name+"</span></li>"));
+        //                 courses_select.append($("<option></option>").attr("value", value.id).text(value.name));
+        //             })
+        //             courses_select.select()
+        //         }
+        //     })
+        // })
+    </script>
+{% endblock %}

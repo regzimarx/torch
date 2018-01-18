@@ -1,0 +1,41 @@
+{% extends 'staff-base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="input-field">
+                    <label for="">Search using lastname or reference number</label>
+                    <input type="text">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lastname</th>
+                            <th>Firstname</th>
+                            <th>Department</th>
+                            <th>Course</th>
+                            <th>Reference #</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for list in students_list %}
+                            <tr>
+                                <td>{{ list.last_name}}</td>
+                                <td>{{ list.first_name }}</td>
+                                <td>{{ list.department }}</td>
+                                <td>{{ list.course }}</td>
+                                <td>{{ list.reference_num }}</td>
+                                <td>
+                                    <a href="{% url 'single-record' list.id %}">View</a> |
+                                    Edit | Remove
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

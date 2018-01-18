@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<title>Torch</title>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #000;
+        }
+        .navbar {
+            background-color: #159957;
+            background-image: linear-gradient(120deg, #155799, #159957);
+        }
+        .navbar-brand, .navbar-nav li a {
+            color: #fff !important;
+        }
+        .btn-gradient {
+            background-color: #159957;
+            background-image: linear-gradient(120deg, #155799, #159957);
+        }
+        .sidenav {
+             margin-left: 300px;
+             background-color: #159957;
+             background-image: linear-gradient(120deg, #155799, #159957);
+        }
+        .sidenav li a {
+            color: #fff;
+        }
+        main {
+            padding-left: 150px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    
+    <!-- ============================ NAVBAR ============================== -->
+    <ul id="slide-out" class="sidenav fixed z-depth-5">
+        <li><a href="{% url 'home' %}">TORCH</a></li>
+      <li><a href="{% url 'records' %}">Dashboard</a></li>
+      <li><a href="#!">Manage</a></li>
+    </ul>
+
+    <br>
+    
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+    
+    <!-- ============================ NAVBAR ============================== -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.1/js/materialize.min.js"></script>
+    {% block js %}
+        <script>
+            $(document).ready(function(){
+                $(".sidenav").sidenav();
+            })
+        </script>
+    {% endblock %}
+</body>
+</html>

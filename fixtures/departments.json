@@ -1,0 +1,66 @@
+[
+   {
+      "model": "torch.department",
+      "pk": 1,
+      "fields": {
+         "code": "elem",
+         "name": "Elementary Training Department"
+      }
+   },
+   {
+      "model": "torch.department",
+      "pk": 2,
+      "fields": {
+         "code": "shs",
+         "name": "Senior High School"
+      }
+   },
+   {
+      "model": "torch.department",
+      "pk": 3,
+      "fields": {
+         "code": "cte",
+         "name": "College of Teacher Education"
+      }
+   },
+   {
+      "model": "torch.department",
+      "pk": 4,
+      "fields": {
+         "code": "cmahs",
+         "name": "College of Midwifery and Allied Health Sciences"
+      }
+   },
+   {
+      "model": "torch.department",
+      "pk": 5,
+      "fields": {
+         "code": "cba-hrm",
+         "name": "College of Business and Accountancy - Hotel and Restaurant Management"
+      }
+   },
+   {
+      "model": "torch.department",
+      "pk": 6,
+      "fields": {
+         "code": "ccis",
+         "name": "College of Computer and Information Science"
+      }
+   },
+   {
+      "model": "torch.department",
+      "pk": 7,
+      "fields": {
+         "code": "ct",
+         "name": "College of Theology"
+      }
+   },
+   {
+      "model": "torch.department",
+      "pk": 8,
+      "fields": {
+         "code": "csw",
+         "name": "College of Social Work"
+      }
+   }
+]

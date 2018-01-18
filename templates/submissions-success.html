@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h3>Submission successful</h3>
+        <p>Thank you <b>{{ obj.first_name }}</b>! You have successfully submitted your information and is to be reviewed by the staff. To update your information, you can file an update using this reference code <b>{{ reference_code }}.</b></p>
+        <br>
+        <a class="btn btn-primary btn-lg blue-grey" href="/">Finish</a>
+    </div>
+{% endblock %}
